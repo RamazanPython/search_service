@@ -1,11 +1,14 @@
 import json
+import os
 import time
 
-from typing import Any
+
+module_dir = os.path.dirname(__file__)
+file_path = os.path.join(module_dir, 'response_a.json')
 
 
-def get_flights_data() -> Any:
-    with open('response_a.json') as f:
+def get_flights_data() -> dict:
+    with open(file_path, 'r') as f:
         flights = json.load(f)
     time.sleep(60)
-    return flights
+    return {'data': flights}
