@@ -13,10 +13,6 @@ RUN apt-get update \
   && apt-get install -y libpq-dev \
   # gunicorn installation \
   && apt-get install -y gunicorn \
-  # Install opencv python dependencies
-  && apt-get install ffmpeg libsm6 libxext6  -y \
-  # Install zbar for qr reads
-  && apt-get install -y libzbar0 \
   # Translations dependencies
   && apt-get install -y gettext \
   # cleaning up unused files
