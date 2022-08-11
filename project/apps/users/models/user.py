@@ -10,7 +10,6 @@ from utils.models import AbstractTimeTrackable
 class User(AbstractBaseUser,
            PermissionsMixin,
            AbstractTimeTrackable):
-
     email = models.EmailField(
         unique=True,
         blank=True,
