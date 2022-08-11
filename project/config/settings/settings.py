@@ -22,6 +22,7 @@ INSTALLED_APPS += [
     'users',
     'utils',
     'provider_a',
+    'provider_b',
 ]
 
 # ------------------------- MIDDLEWARE ------------------------------------

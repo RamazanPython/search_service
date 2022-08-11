@@ -13,9 +13,9 @@ from utils.serializers import ProviderSerializer
 @extend_schema(responses=ProviderSerializer)
 @api_view(['POST'])
 def search(request: Request) -> Response:
-    file_path = apps.get_app_config('provider_a').path + '/response_a.json'
+    file_path = apps.get_app_config('provider_b').path + '/response_b.json'
     flights_data = get_flights_data(
         file_path=file_path,
-        sleep_duration=30
+        sleep_duration=60
     )
-    return Response(ProviderSerializer(flights_data, many=True).data, status=status.HTTP_200_OK)
+    return Response(ProviderSerializer(flights_data, many=True), status=status.HTTP_200_OK)
