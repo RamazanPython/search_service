@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "c9f47c8d67f91c2fafa7ae004d35fe5d04b0e90851c62ae596ea5068823f39a9"
+            "sha256": "dc2a7964980650fae3d901feb5375de185e86ff1aa75f212e0ede0166acffcf8"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -79,6 +79,14 @@
             ],
             "index": "pypi",
             "version": "==5.1.0"
+        },
+        "drf-errors-formatter": {
+            "hashes": [
+                "sha256:92d605b7ff5c250c522301a835b88b5cc358631f69dfb60e914b4533e50bdd77",
+                "sha256:b4e7a1c06b3560c243e48c32f82d151c8847bb202bdf8af595bf430537022e8e"
+            ],
+            "index": "pypi",
+            "version": "==1.0.1"
         },
         "drf-spectacular": {
             "hashes": [
