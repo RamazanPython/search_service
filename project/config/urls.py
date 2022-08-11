@@ -5,10 +5,12 @@ from django.urls import path, include
 
 from .swagger import swagger_patterns
 
-api_v1_patterns = []
+api_v1_patterns = [
+    path('provider_a/', include('provider_a.api.v1.urls'))
+]
 
 api_patterns = [
-    path('v1/', include(api_v1_patterns))
+    path('v1/', include(api_v1_patterns)),
 ]
 
 urlpatterns = [
