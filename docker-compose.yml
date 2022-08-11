@@ -1,13 +1,14 @@
-version: '3.7'
+version: '3.10'
 
 services:
   web:
     build: .
     entrypoint: ./entrypoint.sh
     volumes:
+      - .:/app
       - media_files:/app/media
     ports:
-      - "8000:8000"
+      - "9000:9000"
     env_file:
       - .env
     restart: always

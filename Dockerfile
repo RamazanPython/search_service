@@ -1,9 +1,9 @@
-FROM python:3.7
+FROM python:3.10
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-ARG APP_USER=dms
+ARG APP_USER=user
 RUN groupadd -r ${APP_USER} && useradd --no-log-init -r -g ${APP_USER} ${APP_USER}
 
 RUN apt-get update \
