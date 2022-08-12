@@ -30,6 +30,18 @@ REST_FRAMEWORK = {
     'EXCEPTION_HANDLER': 'drf_handlers.formatter.errors_exception_handler'
 }
 
+# ----------------------------- CACHE ----------------------------------
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": f"redis://{os.getenv('REDIS_HOST', 'localhost')}:{os.getenv('REDIS_PORT', '6378')}/{os.getenv('REDIS_DB', '0')}",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
+
+
 # ------------------------- AUTH ------------------------------------
 AUTH_ALGORITHM = 'HS256'
 AUTH_TOKEN_SECRET = 'secret'
@@ -65,7 +77,7 @@ LOGGING = {
             'level': 'WARNING',  # DEBUG will log all queries, so change it to WARNING.
             'propagate': False,  # Don't propagate to other handlers
         },
-        "dms_new": {
+        "search_service": {
             "handlers": ["console"],
             "level": "INFO",
             "propagate": True
@@ -80,3 +92,13 @@ SPECTACULAR_SETTINGS = {
     'VERSION': '1.0.0',
     'COMPONENT_SPLIT_REQUEST': True
 }
+
+# Celery
+CELERY_BROKER_URL = f"redis://{os.environ.get('REDIS_HOST', 'localhost')}:{os.environ.get('REDIS_PORT', '6378')}/{os.environ.get('REDIS_DB', '0')}"
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Asia/Almaty'
+CELERY_RESULT_BACKEND = f"redis://{os.environ.get('REDIS_HOST', 'localhost')}:{os.environ.get('REDIS_PORT', '6378')}/{os.environ.get('REDIS_DB', '0')}"
+CELERY_CACHE_BACKEND = 'django-cache'
+CELERYBEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
+
