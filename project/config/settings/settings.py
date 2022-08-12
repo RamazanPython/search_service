@@ -23,6 +23,7 @@ INSTALLED_APPS += [
     'utils',
     'provider_a',
     'provider_b',
+    'airflow',
 ]
 
 # ------------------------- MIDDLEWARE ------------------------------------
