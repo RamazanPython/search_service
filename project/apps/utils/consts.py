@@ -16,3 +16,10 @@ class Choice(Enum):
 
     def __str__(self):
         return self.value
+
+
+class SearchResultStatusChoice(str, Choice):
+    PENDING = 'PENDING'
+    COMPLETED = 'COMPLETED'
+    FAILED = 'FAILED'
+
