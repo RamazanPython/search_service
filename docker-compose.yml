@@ -2,10 +2,11 @@ version: '3.10'
 
 services:
   web:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     entrypoint: ./entrypoint.sh
     volumes:
-      - .:/app
       - media_files:/app/media
     ports:
       - "8000:8000"
@@ -14,12 +15,41 @@ services:
     restart: always
     depends_on:
       - db
+      - redis
   db:
     image: postgres:12.0-alpine
     env_file:
       - .env
     volumes:
       - local_postgres_data:/var/lib/postgresql/data
+  redis:
+    image: redis:alpine
+    env_file:
+      - .env
+  celery:
+    container_name: search_engine_celery
+    build:
+      context: .
+    command: celery -A config worker -l info
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+      - redis
+    env_file:
+      - .env
+  celery-beat:
+    container_name: search_engine_celery_beat
+    build:
+      context: .
+    command: celery -A config beat -l info
+    volumes:
+      - .:/app
+    depends_on:
+      - postgres
+      - redis
+    env_file:
+      - .env
 
 volumes:
   local_postgres_data:

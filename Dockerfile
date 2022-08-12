@@ -35,4 +35,4 @@ RUN chmod +x ./entrypoint.sh
 COPY ./project/ .
 
 
-ENTRYPOINT ["./entrypoint.sh"]
+# ENTRYPOINT ["./entrypoint.sh"]
