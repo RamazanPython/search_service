@@ -4,7 +4,10 @@ from django.utils.translation import gettext_lazy as _
 from utils.models import AbstractTimeTrackable
 
 
-class Currency(AbstractTimeTrackable):
+class ExchangeRate(AbstractTimeTrackable):
+    """
+        Курс валют
+    """
     data = models.JSONField(
         null=True,
         blank=True,

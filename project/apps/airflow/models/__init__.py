@@ -1,2 +1,2 @@
-from .currency import Currency
+from .exchangerate import ExchangeRate
 from .search import SearchResult
