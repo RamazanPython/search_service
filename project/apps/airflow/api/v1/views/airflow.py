@@ -3,10 +3,10 @@ from rest_framework.response import Response
 from rest_framework.request import Request
 from rest_framework import status
 
-from airflow.models import SearchResult
+from airflow.models import SearchData
 
 
 @api_view(['POST'])
 def search(request: Request) -> Response:
-    search_result = SearchResult.objects.create()
+    search_result = SearchData.objects.create()
     return Response({'search_id': search_result.pk}, status=status.HTTP_200_OK)
