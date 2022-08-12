@@ -1,8 +1,8 @@
 from django.urls import path
 
-from .views import search, exchange_rate
+from .views import search, get_exchange_rate_manually
 
 urlpatterns = [
     path("search/", search, name='airflow-search'),
-    path("exchange_rate/", exchange_rate, name='exchange_rate'),
+    path("exchange_rate/", get_exchange_rate_manually, name='exchange_rate'),
 ]
