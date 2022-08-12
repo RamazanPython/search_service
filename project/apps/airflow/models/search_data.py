@@ -10,12 +10,8 @@ class SearchData(AbstractTimeTrackable):
         editable=False,
         verbose_name=_('ID поиска')
     )
-    service = models.ForeignKey(
-        'airflow.Service',
-        on_delete=models.CASCADE,
-        null=True,
-        blank=True,
-        verbose_name=_('Сервис')
+    url = models.URLField(
+        verbose_name=_('URL сервиса')
     )
     status = models.CharField(
         max_length=9,
@@ -32,20 +28,7 @@ class SearchData(AbstractTimeTrackable):
     class Meta:
         verbose_name = _('Результат поиска')
         verbose_name_plural = _('Результаты поиска')
+        unique_together = ['search_id', 'url']
 
     def __str__(self) -> str:
         return f'{self.search_id}'
-
-
-class Service(AbstractTimeTrackable):
-    name = models.CharField(
-        max_length=20,
-        verbose_name=_('Название сервиса')
-    )
-
-    class Meta:
-        verbose_name = _('Сервис')
-        verbose_name_plural = _('Сервисы')
-
-    def __str__(self) -> str:
-        return f'{self.name}'

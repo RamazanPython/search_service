@@ -1,3 +1,5 @@
+import uuid
+
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.request import Request
@@ -8,5 +10,6 @@ from airflow.models import SearchData
 
 @api_view(['POST'])
 def search(request: Request) -> Response:
-    search_result = SearchData.objects.create()
-    return Response({'search_id': search_result.pk}, status=status.HTTP_200_OK)
+    search_id = uuid.uuid4()
+
+    return Response(status=status.HTTP_200_OK)
