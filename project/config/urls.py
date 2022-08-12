@@ -8,6 +8,7 @@ from .swagger import swagger_patterns
 api_v1_patterns = [
     path('provider_a/', include('provider_a.api.v1.urls')),
     path('provider_b/', include('provider_b.api.v1.urls')),
+    path('airflow/', include('airflow.api.v1.urls')),
 ]
 
 api_patterns = [
