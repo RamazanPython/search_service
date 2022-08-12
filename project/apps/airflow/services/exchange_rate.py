@@ -5,7 +5,7 @@ from requests.models import Response
 
 from airflow.models import ExchangeRate
 from airflow.requests import exchange_rate_get_request
-from airflow.exceptions import ExchangeRateResponseError
+from utils.exceptions import ExchangeRateResponseError
 from utils.exception_consts import EXCHANGE_RATE_RESPONSE_NOT_OK
 
 

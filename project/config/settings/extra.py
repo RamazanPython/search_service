@@ -104,3 +104,6 @@ CELERYBEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
 
 # EXCHANGE RATE
 EXCHANGE_RATE_URL = os.environ.get('EXCHANGE_RATE_URL', 'https://www.nationalbank.kz/rss/get_rates.cfm')
+
+# PROJECT_URL
+PROJECT_URL = os.environ.get('PROJECT_URL', 'http://localhost:8000')

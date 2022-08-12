@@ -21,5 +21,8 @@ class Choice(Enum):
 class SearchResultStatusChoice(str, Choice):
     PENDING = 'PENDING'
     COMPLETED = 'COMPLETED'
-    FAILED = 'FAILED'
 
+
+class ProvidersUrlNameChoice(str, Choice):
+    PROVIDER_A = 'provider-a-search'
+    PROVIDER_B = 'provider-b-search'
