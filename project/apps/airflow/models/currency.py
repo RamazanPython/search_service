@@ -15,5 +15,5 @@ class Currency(AbstractTimeTrackable):
         verbose_name = _('Курс валют')
         verbose_name_plural = _('Курс валют')
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f'Курс валют за {self.created_date}'
