@@ -27,6 +27,8 @@ drf-errors-formatter = "*"
 celery = "*"
 django-redis = "*"
 requests = "*"
+beautifulsoup4 = "*"
+lxml = "*"
 
 [dev-packages]
 
