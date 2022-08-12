@@ -1,2 +1,2 @@
 from .airflow import search
-from .exchange_rate import exchange_rate
+from .exchange_rate import get_exchange_rate_manually
