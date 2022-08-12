@@ -102,3 +102,5 @@ CELERY_RESULT_BACKEND = f"redis://{os.environ.get('REDIS_HOST', 'localhost')}:{o
 CELERY_CACHE_BACKEND = 'django-cache'
 CELERYBEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
 
+# EXCHANGE RATE
+EXCHANGE_RATE_URL = os.environ.get('EXCHANGE_RATE_URL', 'https://www.nationalbank.kz/rss/get_rates.cfm')
