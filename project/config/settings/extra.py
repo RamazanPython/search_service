@@ -106,5 +106,5 @@ CELERYBEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
 EXCHANGE_RATE_URL = os.environ.get('EXCHANGE_RATE_URL', 'https://www.nationalbank.kz/rss/get_rates.cfm')
 
 # PROVIDER URLS
-PROVIDER_A_URL = os.environ.get('PROVIDER_A_URL', 'http://localhost:8000/api/v1/provider_a/search/')
-PROVIDER_B_URL = os.environ.get('PROVIDER_B_URL', 'http://localhost:8000/api/v1/provider_b/search/')
+PROVIDER_A_URL = os.environ.get('PROVIDER_A_URL', 'http://web:8000/api/v1/provider_a/search/')
+PROVIDER_B_URL = os.environ.get('PROVIDER_B_URL', 'http://web:8000/api/v1/provider_b/search/')
