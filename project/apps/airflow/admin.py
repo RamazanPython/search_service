@@ -16,6 +16,9 @@ class ExchangeRate(admin.ModelAdmin):
         'created_date',
         'updated_date',
     )
+    list_filter = (
+        'created_date',
+    )
 
 
 @admin.register(SearchData)
@@ -30,4 +33,8 @@ class SearchDataAdmin(admin.ModelAdmin):
         'status',
         'created_date',
         'updated_date',
+    )
+    list_filter = (
+        'status',
+        'created_date',
     )

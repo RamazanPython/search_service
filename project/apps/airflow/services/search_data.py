@@ -53,7 +53,8 @@ class SearchDataService:
         for instance in queryset:
             if instance.status == SearchDataStatusChoice.PENDING.value:
                 status = SearchDataStatusChoice.PENDING.value
-            items += instance.data
+            if instance.data:
+                items += instance.data
 
         self._convert_items_to_target_currency(items, target_currency)
         return {

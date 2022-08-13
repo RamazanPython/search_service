@@ -4,6 +4,10 @@ from utils.serializers import ProviderSerializer
 from utils.consts import SearchDataStatusChoice
 
 
+class SearchIdSerializer(serializers.Serializer):
+    search_id = serializers.UUIDField()
+
+
 class SearchDataSerializer(serializers.Serializer):
     search_id = serializers.UUIDField()
     status = serializers.ChoiceField(
