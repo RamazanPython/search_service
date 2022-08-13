@@ -18,3 +18,8 @@ def search(request: Request) -> Response:
         send_request_to_provider_b_task.si(search_id),
     ).apply_async()
     return Response(data={'search_id': search_id}, status=status.HTTP_200_OK)
+
+
+@api_view(['GET'])
+def results(request: Request, search_id: int, currency: str) -> Response:
+    return Response('ok')
