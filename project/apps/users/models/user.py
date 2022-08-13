@@ -31,8 +31,8 @@ class User(AbstractBaseUser,
     objects = UserManager()
 
     class Meta:
-        verbose_name = _("user")
-        verbose_name_plural = _("users")
+        verbose_name = _("Пользователь")
+        verbose_name_plural = _("Пользователь")
 
     def __str__(self) -> str:
-        return self.email
+        return f'Пользователь ID {self.pk}'
