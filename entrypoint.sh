@@ -32,8 +32,8 @@ python manage.py migrate
 python manage.py collectstatic --no-input
 if [ "$DEBUG" == "on" ];
 then
-  python manage.py runserver 0.0.0.0:8000
+  python manage.py runserver 0.0.0.0:9000
 else
-  gunicorn config.settings.wsgi:application --workers 5 --bind 0.0.0.0:8000 --log-file=-
+  gunicorn config.settings.wsgi:application --workers 5 --bind 0.0.0.0:9000 --log-file=-
 fi
 exec "$@"
