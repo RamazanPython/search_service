@@ -24,10 +24,10 @@ class SearchDataService:
 
     def send_request(self) -> None:
         response = send_post(url=self.url)
-        if response.ok:
-            self._create_search_data(response)
+        if not response.ok:
+            raise SearchDataRequestException(SEARCH_DATA_RESPONSE_NOT_OK.format(self.url))
 
-        raise SearchDataRequestException(SEARCH_DATA_RESPONSE_NOT_OK.format(self.url))
+        self._create_search_data(response)
 
     def _create_search_data(self, response: Response) -> None:
         if not response.json():

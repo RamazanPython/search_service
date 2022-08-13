@@ -1,13 +1,18 @@
 from django.contrib import admin
+from django.db import models
+
+from django_json_widget.widgets import JSONEditorWidget
 
 from airflow.models import ExchangeRate, SearchData
 
 
 @admin.register(ExchangeRate)
 class ExchangeRate(admin.ModelAdmin):
+    formfield_overrides = {
+        models.JSONField: {'widget': JSONEditorWidget},
+    }
     list_display = (
         'id',
-        'data',
         'created_date',
         'updated_date',
     )
@@ -15,6 +20,9 @@ class ExchangeRate(admin.ModelAdmin):
 
 @admin.register(SearchData)
 class SearchDataAdmin(admin.ModelAdmin):
+    formfield_overrides = {
+        models.JSONField: {'widget': JSONEditorWidget},
+    }
     list_display = (
         'id',
         'search_id',

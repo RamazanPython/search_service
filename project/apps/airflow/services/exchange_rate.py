@@ -19,10 +19,10 @@ class ExchangeRateService:
         }
         url = f'{settings.EXCHANGE_RATE_URL}'
         response = send_get(url, params=params)
-        if response.ok:
-            return response
+        if not response.ok:
+            raise ExchangeRateRequestException(EXCHANGE_RATE_RESPONSE_NOT_OK)
 
-        raise ExchangeRateRequestException(EXCHANGE_RATE_RESPONSE_NOT_OK)
+        return response
 
     @staticmethod
     def save_exchange_rate() -> ExchangeRate:

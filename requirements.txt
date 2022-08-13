@@ -24,6 +24,7 @@ django-celery-beat==2.3.0
 django-cors-headers==3.12.0
 django-environ==0.8.1
 django-filter==21.1
+django-json-widget==1.1.1
 django-redis==5.2.0
 django-timezone-field==5.0; python_version >= '3.7' and python_version < '4'
 django==3.2.7
@@ -31,6 +32,7 @@ djangorestframework-simplejwt==5.1.0
 djangorestframework==3.13.1
 drf-errors-formatter==1.0.1
 drf-spectacular==0.22.1
+future==0.18.2; python_version >= '2.6' and python_version not in '3.0, 3.1, 3.2, 3.3'
 gunicorn==20.1.0
 idna==3.3; python_version >= '3.5'
 inflection==0.5.1
