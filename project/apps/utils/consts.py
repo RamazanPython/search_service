@@ -23,3 +23,7 @@ class SearchDataStatusChoice(str, Choice):
     COMPLETED = 'COMPLETED'
     NO_DATA = 'NO_DATA'
     FAILED = 'FAILED'
+
+
+class CurrencyCodeChoice(str, Choice):
+    KZT = 'KZT'

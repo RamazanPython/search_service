@@ -37,8 +37,17 @@ class FlightSerializer(serializers.Serializer):
     segments = SegmentsSerializer(many=True)
 
 
+class ConvertedPriceSerializer(serializers.Serializer):
+    amount = serializers.DecimalField(
+        max_digits=15,
+        decimal_places=2
+    )
+    currency = serializers.CharField()
+
+
 class ProviderSerializer(serializers.Serializer):
     flights = FlightSerializer(many=True)
     refundable = serializers.BooleanField()
     validating_airline = serializers.CharField()
     pricing = PricingSerializer()
+    price = ConvertedPriceSerializer(allow_null=True)
