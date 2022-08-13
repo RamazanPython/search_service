@@ -29,8 +29,8 @@ class SearchData(AbstractTimeTrackable):
     )
 
     class Meta:
-        verbose_name = _('Результат поиска')
-        verbose_name_plural = _('Результаты поиска')
+        verbose_name = _('Данные поиска')
+        verbose_name_plural = _('Данные поиска')
 
     def __str__(self) -> str:
         return f'{self.search_id}'
