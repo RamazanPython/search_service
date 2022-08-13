@@ -14,24 +14,25 @@ class SearchDataService:
     def __init__(self, search_id: uuid.uuid4) -> None:
         self.search_id = search_id
 
+    def _create_instance(self, url: str) -> SearchData:
+        return SearchData.objects.create(
+            search_id=self.search_id,
+            url=url,
+        )
+
     def send_request(self, url: str) -> None:
+        instance = self._create_instance(url)
         response = send_post(url=url)
         if not response.ok:
             raise SearchDataRequestException(SEARCH_DATA_RESPONSE_NOT_OK.format(url))
 
-        self._create_search_data(response)
+        self._create_search_data(response, instance)
 
-    def _create_search_data(self, response: Response) -> None:
+    def _create_search_data(self, response: Response, instance: SearchData) -> None:
         if not response.json():
-            SearchData.objects.create(
-                search_id=self.search_id,
-                url=response.url,
-                status=SearchResultStatusChoice.NO_DATA.value
-            )
+            instance.status = SearchResultStatusChoice.NO_DATA.value
+            instance.save(update_fields=['status'])
         else:
-            SearchData.objects.create(
-                search_id=self.search_id,
-                url=response.url,
-                data=response.json(),
-                status=SearchResultStatusChoice.COMPLETED.value
-            )
+            instance.status = SearchResultStatusChoice.COMPLETED.value
+            instance.data = response.json()
+            instance.save(update_fields=['status', 'data'])
