@@ -22,7 +22,7 @@ def send_post(url, data=None, params=None, headers=None, files=None, json=None):
     elif json:
         response = requests.post(url, json=json, params=params, headers=headers, files=files)
     else:
-        raise ValueError('Need to pass the argument data or json')
+        response = requests.post(url, json=json, params=params, headers=headers, files=files)
     return response
 
 

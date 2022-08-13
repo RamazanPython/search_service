@@ -1,12 +1,13 @@
+from django.conf import settings
 from django.utils import timezone
 
 from bs4 import BeautifulSoup
 from requests.models import Response
 
 from airflow.models import ExchangeRate
-from airflow.requests import exchange_rate_get_request
-from utils.exceptions import ExchangeRateResponseError
+from utils.exceptions import ExchangeRateRequestException
 from utils.exception_consts import EXCHANGE_RATE_RESPONSE_NOT_OK
+from utils.functions import send_get
 
 
 class ExchangeRateService:
@@ -16,18 +17,12 @@ class ExchangeRateService:
         params = {
             'fdate': timezone.now().strftime("%d.%m.%Y")
         }
-        response = exchange_rate_get_request(params=params)
+        url = f'{settings.EXCHANGE_RATE_URL}'
+        response = send_get(url, params=params)
         if response.ok:
             return response
 
-        error = ExchangeRateResponseError(
-            msg=EXCHANGE_RATE_RESPONSE_NOT_OK,
-            url=response.url,
-            code=response.status_code,
-            hdrs=response.headers,
-            fp=None
-        )
-        raise error
+        raise ExchangeRateRequestException(EXCHANGE_RATE_RESPONSE_NOT_OK)
 
     @staticmethod
     def save_exchange_rate() -> ExchangeRate:

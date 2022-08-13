@@ -1,1 +1,2 @@
 from .exchange_rate import exchange_rate_task
+from .search_data import send_request_to_provider_a_task, send_request_to_provider_b_task

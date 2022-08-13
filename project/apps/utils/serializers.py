@@ -3,15 +3,15 @@ from rest_framework import serializers
 
 class PricingSerializer(serializers.Serializer):
     total = serializers.DecimalField(
-        max_digits=6,
+        max_digits=15,
         decimal_places=2
     )
     base = serializers.DecimalField(
-        max_digits=6,
+        max_digits=15,
         decimal_places=2
     )
     taxes = serializers.DecimalField(
-        max_digits=6,
+        max_digits=15,
         decimal_places=2
     )
     currency = serializers.CharField()

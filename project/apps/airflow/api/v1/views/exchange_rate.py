@@ -16,4 +16,4 @@ from airflow.api.v1.serializers import ExchangeRateSerializer
 @api_view(['GET'])
 def get_exchange_rate_manually(request: Request) -> Response:
     instance = ExchangeRateService.save_exchange_rate()
-    return Response(ExchangeRateSerializer(instance).data, status=status.HTTP_200_OK)
+    return Response(data=ExchangeRateSerializer(instance).data, status=status.HTTP_200_OK)

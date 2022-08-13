@@ -18,4 +18,4 @@ def search(request: Request) -> Response:
         file_path=file_path,
         sleep_duration=30
     )
-    return Response(ProviderSerializer(flights_data, many=True).data, status=status.HTTP_200_OK)
+    return Response(data=ProviderSerializer(flights_data, many=True).data, status=status.HTTP_200_OK)

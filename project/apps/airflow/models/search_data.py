@@ -6,6 +6,9 @@ from utils.models import AbstractTimeTrackable
 
 
 class SearchData(AbstractTimeTrackable):
+    """
+        Данные поиска
+    """
     search_id = models.UUIDField(
         editable=False,
         verbose_name=_('ID поиска')
@@ -28,7 +31,6 @@ class SearchData(AbstractTimeTrackable):
     class Meta:
         verbose_name = _('Результат поиска')
         verbose_name_plural = _('Результаты поиска')
-        unique_together = ['search_id', 'url']
 
     def __str__(self) -> str:
         return f'{self.search_id}'

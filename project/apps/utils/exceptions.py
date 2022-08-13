@@ -1,9 +1,6 @@
-from urllib.error import HTTPError
-
-
-class ExchangeRateResponseError(HTTPError):
+class ExchangeRateRequestException(Exception):
     pass
 
 
-class SearchResultResponseError(HTTPError):
+class SearchDataRequestException(Exception):
     pass

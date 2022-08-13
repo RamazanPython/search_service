@@ -34,6 +34,6 @@ if [ "$DEBUG" == "on" ];
 then
   python manage.py runserver 0.0.0.0:8000
 else
-    gunicorn config.settings.wsgi:application --workers 5 --bind 0.0.0.0:8000 --log-file=-
+  gunicorn config.settings.wsgi:application --workers 5 --bind 0.0.0.0:8000 --log-file=-
 fi
 exec "$@"
