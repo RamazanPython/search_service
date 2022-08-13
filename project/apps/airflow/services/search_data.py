@@ -1,7 +1,6 @@
 import uuid
 
 from requests.models import Response
-from typing import Union
 
 from airflow.models import SearchData
 from utils.consts import SearchResultStatusChoice
