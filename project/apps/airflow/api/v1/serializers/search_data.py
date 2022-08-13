@@ -1,14 +1,16 @@
 from rest_framework import serializers
 
-from airflow.models import SearchData
+from utils.serializers import ProviderSerializer
+from utils.consts import SearchDataStatusChoice
 
 
-class SearchDataSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = SearchData
-        fields = (
-            'id',
-            'status',
-            'data',
-        )
+class SearchDataSerializer(serializers.Serializer):
+    search_id = serializers.UUIDField()
+    status = serializers.ChoiceField(
+        choices=SearchDataStatusChoice.choices(),
+        allow_null=True,
+    )
+    items = ProviderSerializer(
+        many=True,
+        allow_null=True,
+    )

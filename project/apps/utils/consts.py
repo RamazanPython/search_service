@@ -18,7 +18,8 @@ class Choice(Enum):
         return self.value
 
 
-class SearchResultStatusChoice(str, Choice):
+class SearchDataStatusChoice(str, Choice):
     PENDING = 'PENDING'
     COMPLETED = 'COMPLETED'
     NO_DATA = 'NO_DATA'
+    FAILED = 'FAILED'
