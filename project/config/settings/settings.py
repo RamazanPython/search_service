@@ -21,6 +21,7 @@ INSTALLED_APPS += [
     'django_json_widget',
 
     # APPS
+    'users',
     'utils',
     'provider_a',
     'provider_b',
