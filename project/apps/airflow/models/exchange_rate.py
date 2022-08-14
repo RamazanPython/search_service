@@ -16,7 +16,7 @@ class ExchangeRate(AbstractTimeTrackable):
 
     class Meta:
         verbose_name = _('Курс валют')
-        verbose_name_plural = _('Курс валют')
+        verbose_name_plural = _('Курсы валют')
 
     def __str__(self) -> str:
         return f'Курс валют за {self.created_date}'

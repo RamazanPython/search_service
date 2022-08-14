@@ -60,7 +60,7 @@ class SearchDataService:
         return {
             'search_id': self.search_id,
             'status': status,
-            'items': items
+            'items': sorted(items, key=lambda i: Decimal(i['price']['amount']), reverse=True)
         }
 
     def _convert_items_to_target_currency(self, items: list, target_currency: str) -> None:
