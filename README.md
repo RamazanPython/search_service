@@ -15,5 +15,8 @@ Note: Эндпоинта /api/v1/airflow/exchange_rate/ не было в ТЗ. �
 docker compose up --build
 ```
 
+## URL
+localhost:9000/api/v1/swagger/
+
 ## Screenshot
 ![alt text](https://github.com/RamazanPython/search_service/blob/master/screenshot.png)
